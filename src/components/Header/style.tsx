@@ -40,3 +40,21 @@ export const HeaderSeachBarContainer = styled.div`
   left: 50%;
   transform: translate(-50%, 50%);
 `;
+
+export const HeaderSeachBarWraper = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+`;
+export const HeaderSeachBarTitleConteiner = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const HeaderSeachBarTitle = styled.h1`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.text};
+  margin-left: 45px;
+`;
