@@ -10,7 +10,7 @@ export const light: DefaultTheme = {
     inputPlaceholder: "#DDDDDD",
   },
   breakpoints: {
-    sm: "650px",
+    sm: "850px",
     lg: "1200px",
   },
 };
