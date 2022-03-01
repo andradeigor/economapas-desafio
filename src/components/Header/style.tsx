@@ -44,10 +44,10 @@ export const HeaderSeachBarContainer = styled.div`
 export const HeaderSeachBarWraper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 10px;
+  display: flex;
+  align-items: center;
 `;
 export const HeaderSeachBarTitleConteiner = styled.div`
-  width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -57,4 +57,37 @@ export const HeaderSeachBarTitle = styled.h1`
   font-size: 24px;
   color: ${({ theme }) => theme.colors.text};
   margin-left: 45px;
+`;
+
+export const HeaderSeachBarInput = styled.input`
+  margin-left: 40px;
+  width: 470px;
+  height: 40px;
+  background-color: ${({ theme }) => theme.colors.background};
+  border: none;
+  padding-left: 16px;
+  font-size: 16px;
+  font-family: "Mukta";
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.inputPlaceholder};
+  }
+`;
+
+export const HeaderCicleOne = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -30%);
+`;
+export const HeaderCicleTwo = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-30%, -10%);
+`;
+export const HeaderCicleThree = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, 30%);
 `;

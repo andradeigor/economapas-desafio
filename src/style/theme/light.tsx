@@ -7,6 +7,7 @@ export const light: DefaultTheme = {
     background: "#FAFAFA",
     card: "#FFF",
     text: "#4E5069",
+    inputPlaceholder: "#DDDDDD",
   },
   breakpoints: {
     sm: "650px",

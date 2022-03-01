@@ -9,6 +9,7 @@ declare module "styled-components" {
       card: string;
       background: string;
       text: string;
+      inputPlaceholder: string;
     };
     breakpoints: {
       sm: string;
