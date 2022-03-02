@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const CardsWarper = styled.section`
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -45%);
+  display: flex;
+  gap: 60px;
+  right: 50%;
+  height: 600px;
+`;
+
 export const CardTitleContainer = styled.div`
   width: 100%;
   height: 100px;
