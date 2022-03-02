@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   height: 230px;
   background-color: ${({ theme }) => theme.colors.purple};
   position: relative;
+  overflow-x: visible;
 `;
 
 export const HeaderTitleContainer = styled.section`
@@ -49,6 +50,7 @@ export const HeaderSeachBarContainer = styled.div`
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
+  z-index: 10;
   @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     width: 360px;
     height: 180px;
@@ -99,9 +101,18 @@ export const HeaderSeachBarInput = styled.input`
     width: 300px;
     height: 60px;
     margin-left: 15px;
+    font-size: 24px;
   }
 `;
 
+export const HeaderCicleContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  width: 500px;
+  height: 100%;
+`;
 export const HeaderCicleOne = styled.img`
   position: absolute;
   top: 0;

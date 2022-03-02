@@ -11,15 +11,18 @@ import {
   HeaderCicleOne,
   HeaderCicleTwo,
   HeaderCicleThree,
+  HeaderCicleContainer,
 } from "./style";
 import ciclePath from "assets/circle.svg";
 
 export const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <HeaderCicleOne src={ciclePath} />
-      <HeaderCicleTwo src={ciclePath} />
-      <HeaderCicleThree src={ciclePath} />
+      <HeaderCicleContainer>
+        <HeaderCicleOne src={ciclePath} />
+        <HeaderCicleTwo src={ciclePath} />
+        <HeaderCicleThree src={ciclePath} />
+      </HeaderCicleContainer>
       <HeaderSeachBarContainer>
         <HeaderSeachBarWraper>
           <HeaderSeachBarTitleConteiner>
