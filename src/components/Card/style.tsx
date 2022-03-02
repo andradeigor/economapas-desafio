@@ -144,7 +144,7 @@ export const CardPlayButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 export const CardPlayButton = styled.button`

@@ -22,40 +22,51 @@ import {
   CardTitleWraper,
   CardLevelButtonsTextPlus,
 } from "./style";
-import LinuxIconPath from "assets/LinuxIcon.png";
-import CompIconPath from "assets/CompIcon.png";
-import UserLogoPath from "assets/User.svg";
 
-export const Card: React.FC = () => {
+import UserLogoPath from "assets/User.svg";
+type Card = {
+  title: string;
+  subTitle: string;
+  peopleNumber: number;
+  level: string;
+  path: string;
+};
+export const Card: React.FC<Card> = ({
+  title,
+  subTitle,
+  peopleNumber,
+  level,
+  path,
+}) => {
   return (
     <CardContainer>
       <CardTitleContainer>
         <CardTitleWraper>
-          <CardTitle>Meia Entrada</CardTitle>
-          <CardSubtitle>Dia de Semana</CardSubtitle>
+          <CardTitle>{title}</CardTitle>
+          <CardSubtitle>Nível {subTitle}</CardSubtitle>
         </CardTitleWraper>
       </CardTitleContainer>
       <CardMainDivider />
       <CardImageContainer>
-        <CardImage src={LinuxIconPath} />
+        <CardImage src={path} />
       </CardImageContainer>
       <CardPeopleContainer>
         <CardPeopleLogo src={UserLogoPath} />
-        <CardPeopleText>1 Pessoa</CardPeopleText>
+        <CardPeopleText>{peopleNumber} Pessoa</CardPeopleText>
       </CardPeopleContainer>
       <CardSubDivider />
       <CardLevelButtonsContainer>
         <CardLevelButtons>
           <CardLevelButtonsTextMinus>-</CardLevelButtonsTextMinus>
         </CardLevelButtons>
-        <CardLevelButtonsText>Testando</CardLevelButtonsText>
+        <CardLevelButtonsText>{level}</CardLevelButtonsText>
         <CardLevelButtons>
           <CardLevelButtonsTextPlus>+</CardLevelButtonsTextPlus>
         </CardLevelButtons>
       </CardLevelButtonsContainer>
       <CardPlayButtonContainer>
         <CardPlayButton>
-          <CardPlayButtonText>Comprar</CardPlayButtonText>
+          <CardPlayButtonText>Jogar</CardPlayButtonText>
         </CardPlayButton>
       </CardPlayButtonContainer>
     </CardContainer>
