@@ -27,8 +27,10 @@ import LinuxIconPath from "assets/LinuxIcon.png";
 import CompIconPath from "assets/CompIcon.png";
 import UserLogoPath from "assets/User.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Card: React.FC = () => {
+  const navigate = useNavigate();
   const [equivalents, setEquivalents] = useState([
     ["Fácil", "easy"],
     ["Médio", "medium"],
@@ -79,7 +81,11 @@ export const Card: React.FC = () => {
           </CardLevelButtons>
         </CardLevelButtonsContainer>
         <CardPlayButtonContainer>
-          <CardPlayButton>
+          <CardPlayButton
+            onClick={() =>
+              navigate(`/quiz/Linux/${equivalents[cardsPeople[0]][1]}`)
+            }
+          >
             <CardPlayButtonText>Jogar</CardPlayButtonText>
           </CardPlayButton>
         </CardPlayButtonContainer>
@@ -116,7 +122,11 @@ export const Card: React.FC = () => {
           </CardLevelButtons>
         </CardLevelButtonsContainer>
         <CardPlayButtonContainer>
-          <CardPlayButton>
+          <CardPlayButton
+            onClick={() =>
+              navigate(`/quiz/Programming/${equivalents[cardsPeople[1]][1]}`)
+            }
+          >
             <CardPlayButtonText>Jogar</CardPlayButtonText>
           </CardPlayButton>
         </CardPlayButtonContainer>

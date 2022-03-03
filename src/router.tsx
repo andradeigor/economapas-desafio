@@ -6,7 +6,9 @@ export const Router: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<Quiz />}></Route>
+        <Route path="/quiz" element={<Quiz />}>
+          <Route path="/quiz/:tag/:difficulty" element={<Quiz />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
