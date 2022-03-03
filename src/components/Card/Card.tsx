@@ -34,29 +34,24 @@ export const Card: React.FC = () => {
     ["Médio", "medium"],
     ["Difícil", "hard"],
   ]);
-  const [cardsLevel, setCardsLevel] = useState(["Fácil", "Fácil"]);
-  const [cardsPeople, setCardsPeople] = useState([1, 1]);
+  const [cardsPeople, setCardsPeople] = useState([0, 0]);
 
   const HandleClick = (action: number, index: number) => {
-    if (action > 2 || action < 0) {
+    if (cardsPeople[index] + action > 2 || cardsPeople[index] + action < 0) {
       return;
+    } else {
+      const oldCards = cardsPeople;
+      oldCards[index] += action;
+      setCardsPeople([...oldCards]);
     }
-    const newDataLevel = cardsLevel;
-    const newDataPeople = cardsPeople;
-    newDataLevel[index] = equivalents[action][0];
-    newDataPeople[index] = action + 1;
-    console.log(action, index);
-    setCardsLevel([...newDataLevel]);
-    setCardsPeople([...newDataPeople]);
   };
-  console.log(cardsPeople);
   return (
     <CardsWarper>
       <CardContainer>
         <CardTitleContainer>
           <CardTitleWraper>
-            <CardTitle>Desafio Linux</CardTitle>
-            <CardSubtitle>Nível {cardsLevel[0]}</CardSubtitle>
+            <CardTitle>Linux</CardTitle>
+            <CardSubtitle>Nível {equivalents[cardsPeople[0]][0]}</CardSubtitle>
           </CardTitleWraper>
         </CardTitleContainer>
         <CardMainDivider />
@@ -65,15 +60,58 @@ export const Card: React.FC = () => {
         </CardImageContainer>
         <CardPeopleContainer>
           <CardPeopleLogo src={UserLogoPath} />
-          <CardPeopleText>{cardsPeople[0]} Pessoa</CardPeopleText>
+          <CardPeopleText>
+            {cardsPeople[0] + 1 === 1
+              ? `${cardsPeople[0] + 1} Pessoa`
+              : `${cardsPeople[0] + 1} Pessoas`}
+          </CardPeopleText>
         </CardPeopleContainer>
         <CardSubDivider />
         <CardLevelButtonsContainer>
-          <CardLevelButtons onClick={() => HandleClick(cardsPeople[0] - 1, 0)}>
+          <CardLevelButtons onClick={() => HandleClick(-1, 0)}>
             <CardLevelButtonsTextMinus>-</CardLevelButtonsTextMinus>
           </CardLevelButtons>
-          <CardLevelButtonsText>{cardsLevel[0]}</CardLevelButtonsText>
-          <CardLevelButtons onClick={() => HandleClick(cardsPeople[0], 0)}>
+          <CardLevelButtonsText>
+            {equivalents[cardsPeople[0]][0]}
+          </CardLevelButtonsText>
+          <CardLevelButtons onClick={() => HandleClick(1, 0)}>
+            <CardLevelButtonsTextPlus>+</CardLevelButtonsTextPlus>
+          </CardLevelButtons>
+        </CardLevelButtonsContainer>
+        <CardPlayButtonContainer>
+          <CardPlayButton>
+            <CardPlayButtonText>Jogar</CardPlayButtonText>
+          </CardPlayButton>
+        </CardPlayButtonContainer>
+      </CardContainer>
+      <CardContainer>
+        <CardTitleContainer>
+          <CardTitleWraper>
+            <CardTitle>Programação</CardTitle>
+            <CardSubtitle>Nível {equivalents[cardsPeople[1]][0]}</CardSubtitle>
+          </CardTitleWraper>
+        </CardTitleContainer>
+        <CardMainDivider />
+        <CardImageContainer>
+          <CardImage src={CompIconPath} />
+        </CardImageContainer>
+        <CardPeopleContainer>
+          <CardPeopleLogo src={UserLogoPath} />
+          <CardPeopleText>
+            {cardsPeople[1] + 1 === 1
+              ? `${cardsPeople[1] + 1} Pessoa`
+              : `${cardsPeople[1] + 1} Pessoas`}
+          </CardPeopleText>
+        </CardPeopleContainer>
+        <CardSubDivider />
+        <CardLevelButtonsContainer>
+          <CardLevelButtons onClick={() => HandleClick(-1, 1)}>
+            <CardLevelButtonsTextMinus>-</CardLevelButtonsTextMinus>
+          </CardLevelButtons>
+          <CardLevelButtonsText>
+            {equivalents[cardsPeople[1]][0]}
+          </CardLevelButtonsText>
+          <CardLevelButtons onClick={() => HandleClick(1, 1)}>
             <CardLevelButtonsTextPlus>+</CardLevelButtonsTextPlus>
           </CardLevelButtons>
         </CardLevelButtonsContainer>
