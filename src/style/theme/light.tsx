@@ -8,6 +8,7 @@ export const light: DefaultTheme = {
     card: "#FFF",
     text: "#4E5069",
     inputPlaceholder: "#DDDDDD",
+    questionCounter: "#F3A737",
   },
   breakpoints: {
     sm: "850px",

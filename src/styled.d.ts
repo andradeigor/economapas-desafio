@@ -10,6 +10,7 @@ declare module "styled-components" {
       background: string;
       text: string;
       inputPlaceholder: string;
+      questionCounter: string;
     };
     breakpoints: {
       sm: string;

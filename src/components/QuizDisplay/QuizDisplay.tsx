@@ -1,3 +1,10 @@
+import { QuestionsDisplay } from "components/QuestionsDisplay/QuestionsDisplay";
+import { QuizDisplayContainer } from "./style";
+
 export const QuizDisplay: React.FC = () => {
-  return <h1>Hello</h1>;
+  return (
+    <QuizDisplayContainer>
+      <QuestionsDisplay></QuestionsDisplay>
+    </QuizDisplayContainer>
+  );
 };
