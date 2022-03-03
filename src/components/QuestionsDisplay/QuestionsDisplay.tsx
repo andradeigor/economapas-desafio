@@ -317,13 +317,24 @@ export const QuestionsDisplay: React.FC = () => {
     },
   ]);
   const [quizIndex, setQuizIndex] = useState(0);
-  const [quizAnserws, setQuizAnserws] = useState([]);
+  const [quizAnserws, setQuizAnserws] = useState<Array<string>>([]);
 
   const HandleClick = (target: string) => {
     console.log(target);
     setOptionSelected(target);
   };
-  const HandleNext = () => {};
+  const HandleNext = () => {
+    console.log("alo");
+    if (optionSelected == "") {
+      return;
+    } else {
+      setQuizAnserws([...quizAnserws, optionSelected]);
+      console.log(quizAnserws);
+      setQuestionData(quizData[quizIndex + 1]);
+      setQuizIndex(quizIndex + 1);
+      setOptionSelected("");
+    }
+  };
   useEffect(() => {
     const newData = quizData.map((data: any) => {
       const { question, answers, correct_answer } = data;
@@ -337,7 +348,7 @@ export const QuestionsDisplay: React.FC = () => {
     <QuestionDisplayContainer>
       <QuestionDisplayTitleContainer>
         <QuestionDisplayTitleCounter>
-          Desafio Linux 10/10
+          Desafio Linux {quizIndex}/10
         </QuestionDisplayTitleCounter>
       </QuestionDisplayTitleContainer>
       <QuestionDisplayQuestionContainer>
@@ -372,7 +383,7 @@ export const QuestionsDisplay: React.FC = () => {
             )
         )}
         <QuestionDisplayNextButtonContainer>
-          <QuestionDisplayNextButton>
+          <QuestionDisplayNextButton onClick={() => HandleNext()}>
             <QuestionDisplayNextButtonText>Next</QuestionDisplayNextButtonText>
           </QuestionDisplayNextButton>
         </QuestionDisplayNextButtonContainer>
