@@ -25,15 +25,24 @@ type Question = {
   multiple_correct_answers: boolean;
   correct_answers: Array<string | null>;
 };
+type Sets = {
+  SetQuestions: (data: any) => void;
+  SetAnswers: (data: any) => void;
+  SetCorrectAnswers: (data: any) => void;
+};
 
-export const QuestionsDisplay: React.FC = () => {
+export const QuestionsDisplay: React.FC<Sets> = ({
+  SetQuestions,
+  SetAnswers,
+  SetCorrectAnswers,
+}) => {
   const navigate = useNavigate();
   const params = useParams();
   const [optionSelected, setOptionSelected] = useState("");
   const [questionData, setQuestionData] = useState({
     question: "",
     answers: [""],
-    correct_answer: [""],
+    correct_answer: "",
   });
   const [quizData, setQuizData] = useState<any>([]);
   const [quizIndex, setQuizIndex] = useState(0);
@@ -43,11 +52,13 @@ export const QuestionsDisplay: React.FC = () => {
     setOptionSelected(target);
   };
   const HandleNext = () => {
-    if (optionSelected == "") {
+    if (optionSelected === "") {
       return;
     } else {
       setQuizAnserws([...quizAnserws, optionSelected]);
       if (quizIndex + 1 >= 10) {
+        SetQuestions(quizData);
+        SetAnswers(quizAnserws);
       } else {
         setQuestionData(quizData[quizIndex + 1]);
         setQuizIndex(quizIndex + 1);
@@ -64,10 +75,8 @@ export const QuestionsDisplay: React.FC = () => {
         `https://quizapi.io/api/v1/questions?apiKey=x5yYMkHgQ0xhz7Q7RD1CfTQESV5gXkBwlfcuNFed&category=${params.tag}&limit=10&difficulty=${params.difficulty}`
       )
       .then((response) => {
-        console.log(response.data);
         const data = response.data;
         const newData = data.map((Puredata: any) => {
-          console.log(Puredata);
           const { question, answers, correct_answer } = Puredata;
           return { question, answers, correct_answer };
         });
@@ -80,7 +89,7 @@ export const QuestionsDisplay: React.FC = () => {
     <QuestionDisplayContainer>
       <QuestionDisplayTitleContainer>
         <QuestionDisplayTitleCounter>
-          Desafio Linux {quizIndex}/10
+          Desafio Linux {quizIndex + 1}/10
         </QuestionDisplayTitleCounter>
       </QuestionDisplayTitleContainer>
       <QuestionDisplayQuestionContainer>
@@ -95,18 +104,18 @@ export const QuestionsDisplay: React.FC = () => {
               <QuestionDisplayOptionsButton
                 key={ans}
                 onClick={() => HandleClick(ans)}
-                selected={ans == optionSelected ? true : false}
+                selected={ans === optionSelected ? true : false}
               >
                 <QuestionDisplayOptionsButtonTextContainer>
                   <QuestionDisplayOptionsButtonTextCircle
-                    selected={ans == optionSelected ? true : false}
+                    selected={ans === optionSelected ? true : false}
                   >
                     <QuestionDisplayOptionsButtonTextCircleInside
-                      selected={ans == optionSelected ? true : false}
+                      selected={ans === optionSelected ? true : false}
                     />
                   </QuestionDisplayOptionsButtonTextCircle>
                   <QuestionDisplayOptionsButtonText
-                    selected={ans == optionSelected ? true : false}
+                    selected={ans === optionSelected ? true : false}
                   >
                     {ans}
                   </QuestionDisplayOptionsButtonText>
