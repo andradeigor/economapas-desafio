@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const QuestionDisplayContainer = styled.div`
   width: 50%;
   height: inherit;
+  margin-bottom: 50px;
 `;
 
 export const QuestionDisplayTitleContainer = styled.div`

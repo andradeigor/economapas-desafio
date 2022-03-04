@@ -8,4 +8,6 @@ export const QuizDisplayContainer = styled.section`
   padding-top: 100px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;

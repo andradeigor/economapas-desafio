@@ -1,3 +1,4 @@
+import { FinalPage } from "components/FinalPage/FinalPage";
 import { QuestionsDisplay } from "components/QuestionsDisplay/QuestionsDisplay";
 import { useEffect, useState } from "react";
 import { QuizDisplayContainer } from "./style";
@@ -26,12 +27,15 @@ export const QuizDisplay: React.FC = () => {
   }, [FinalPageData]);
   return (
     <QuizDisplayContainer>
-      {Switch ? <h1>TO VIVO</h1> : <h1>TO MORTO</h1>}
-      <QuestionsDisplay
-        SetQuestions={(data: any) => setQuestionData(data)}
-        SetAnswers={(data: any) => setAnswerData(data)}
-        SetCorrectAnswers={(data: any) => setFinalPageData(data)}
-      ></QuestionsDisplay>
+      {Switch ? (
+        <FinalPage data={FinalPageData}></FinalPage>
+      ) : (
+        <QuestionsDisplay
+          SetQuestions={(data: any) => setQuestionData(data)}
+          SetAnswers={(data: any) => setAnswerData(data)}
+          SetCorrectAnswers={(data: any) => setFinalPageData(data)}
+        ></QuestionsDisplay>
+      )}
     </QuizDisplayContainer>
   );
 };
