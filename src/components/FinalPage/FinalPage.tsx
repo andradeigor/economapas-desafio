@@ -16,20 +16,21 @@ import {
   QuestionCorrectDisplayOptionsButtonTextCircle,
   QuestionCorrectDisplayOptionsButtonTextCircleInside,
   QuestionCorrectDisplayOptionsButtonTextContainer,
+  NumberOfCorrects,
 } from "./style";
 
 import { useNavigate } from "react-router-dom";
-export const FinalPage: React.FC<any> = ({ data }) => {
+export const FinalPage: React.FC<any> = ({ data, number }) => {
   const navigate = useNavigate();
   const [QuestionsData, setQuestionsData] = useState<any>([]);
-  const [index, setIndex] = useState(0);
   useEffect(() => {
     setQuestionsData(data);
     console.log(data);
   }, []);
   return (
     <>
-      {QuestionsData?.map((question: any) => {
+      <NumberOfCorrects>Você acertou {number}/10</NumberOfCorrects>
+      {QuestionsData?.map((question: any, index: number) => {
         return (
           <QuestionDisplayContainer>
             <QuestionDisplayTitleContainer>

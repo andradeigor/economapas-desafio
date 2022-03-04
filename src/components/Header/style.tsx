@@ -131,3 +131,14 @@ export const HeaderCicleThree = styled.img`
   right: 0;
   transform: translate(20%, 30%);
 `;
+
+export const HeaderName = styled.p`
+  font-size: 36px;
+  font-weight: 900;
+  color: ${({ theme }) => theme.colors.card};
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-80%, 30%);
+  text-shadow: 0 10px 10px rgba(9, 25, 51, 0.15);
+`;

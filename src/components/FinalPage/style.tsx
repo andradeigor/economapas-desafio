@@ -71,3 +71,10 @@ export const QuestionCorrectDisplayOptionsButtonText = styled("p")<{
       props.selected ? props.theme.colors.purple : props.theme.colors.card};
   }
 `;
+
+export const NumberOfCorrects = styled.p`
+  font-size: 36px;
+  font-weight: 900;
+  color: ${({ theme }) => theme.colors.purple};
+  text-shadow: 0 10px 10px rgba(9, 25, 51, 0.15);
+`;

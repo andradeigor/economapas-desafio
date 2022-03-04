@@ -5,6 +5,7 @@ import { QuizDisplayContainer } from "./style";
 
 export const QuizDisplay: React.FC = () => {
   const [FinalPageData, setFinalPageData] = useState<any>([]);
+  const [NumberCorrect, setNumberCorrect] = useState(0);
   const [Switch, setSwich] = useState(false);
   const [questionData, setQuestionData] = useState<any>([]);
   const [answersData, setAnswerData] = useState<any>([]);
@@ -16,6 +17,7 @@ export const QuizDisplay: React.FC = () => {
         questionData[index].answers[correctAlternativa] === answersData[index]
       ) {
         FinalPageDataPure.push({ ...questionData[index], correct: true });
+        setNumberCorrect(NumberCorrect + 1);
       } else {
         FinalPageDataPure.push({ ...questionData[index], correct: false });
       }
@@ -28,7 +30,7 @@ export const QuizDisplay: React.FC = () => {
   return (
     <QuizDisplayContainer>
       {Switch ? (
-        <FinalPage data={FinalPageData}></FinalPage>
+        <FinalPage data={FinalPageData} number={NumberCorrect}></FinalPage>
       ) : (
         <QuestionsDisplay
           SetQuestions={(data: any) => setQuestionData(data)}
