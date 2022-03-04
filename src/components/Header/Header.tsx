@@ -15,7 +15,6 @@ import {
   HeaderName,
 } from "./style";
 import ciclePath from "assets/circle.svg";
-import { useState } from "react";
 
 export const Header: React.FC<any> = ({ name, setUserName }) => {
   const OnChangeText = (ev: any) => {

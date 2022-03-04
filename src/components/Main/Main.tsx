@@ -1,6 +1,5 @@
 import { Card } from "components/Card/Card";
-import { useState } from "react";
-import { TicketContainer, CardsWarper } from "./style";
+import { TicketContainer } from "./style";
 
 export const Main: React.FC = () => {
   return (

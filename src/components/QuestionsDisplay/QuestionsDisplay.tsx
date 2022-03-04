@@ -17,14 +17,7 @@ import {
 } from "./style";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-type Question = {
-  id: number;
-  question: string;
-  description: string | null;
-  answers: Array<string | null>;
-  multiple_correct_answers: boolean;
-  correct_answers: Array<string | null>;
-};
+
 type Sets = {
   SetQuestions: (data: any) => void;
   SetAnswers: (data: any) => void;
@@ -83,7 +76,7 @@ export const QuestionsDisplay: React.FC<Sets> = ({
         setQuizData(newData);
         setQuestionData(newData[0]);
       });
-  }, []);
+  }, [navigate, params.tag, params.difficulty]);
 
   return (
     <QuestionDisplayContainer>

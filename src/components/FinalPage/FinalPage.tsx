@@ -26,7 +26,7 @@ export const FinalPage: React.FC<any> = ({ data, number }) => {
   useEffect(() => {
     setQuestionsData(data);
     console.log(data);
-  }, []);
+  }, [data]);
   return (
     <>
       <NumberOfCorrects>Você acertou {number}/10</NumberOfCorrects>

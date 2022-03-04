@@ -23,10 +23,10 @@ export const QuizDisplay: React.FC = () => {
       }
     }
     setFinalPageData(FinalPageDataPure);
-  }, [questionData, answersData]);
+  }, [questionData, answersData, NumberCorrect]);
   useEffect(() => {
     setSwich(!Switch);
-  }, [FinalPageData]);
+  }, [FinalPageData, Switch]);
   return (
     <QuizDisplayContainer>
       {Switch ? (

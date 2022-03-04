@@ -6,8 +6,6 @@ import {
   CardLevelButtonsContainer,
   CardLevelButtonsText,
   CardLevelButtonsTextMinus,
-  CardLevelContainer,
-  CardLevelText,
   CardMainDivider,
   CardPeopleContainer,
   CardPeopleLogo,
@@ -31,7 +29,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Card: React.FC = () => {
   const navigate = useNavigate();
-  const [equivalents, setEquivalents] = useState([
+  const [equivalents] = useState([
     ["Fácil", "easy"],
     ["Médio", "medium"],
     ["Difícil", "hard"],
