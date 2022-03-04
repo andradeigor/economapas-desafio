@@ -8,6 +8,8 @@ export const CardsWarper = styled.section`
   gap: 60px;
   right: 50%;
   height: 600px;
+  flex-wrap: wrap;
+  margin-top: 50px;
 `;
 
 export const CardTitleContainer = styled.div`
@@ -70,6 +72,9 @@ export const CardContainer = styled.div`
   overflow: hidden;
   :hover {
     height: 560px;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    height: 560;
   }
 `;
 export const CardPeopleContainer = styled.div`
